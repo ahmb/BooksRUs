@@ -10,5 +10,9 @@ public class ReadingListDbContext(DbContextOptions<ReadingListDbContext> opt) : 
     {
         b.HasDefaultSchema("readinglist");
         b.ApplyConfigurationsFromAssembly(typeof(ReadingListDbContext).Assembly);
+        b.Entity<ReadingListItem>(e =>
+        {
+            e.ToTable("Items");
+        });
     }
 }

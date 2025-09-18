@@ -10,5 +10,9 @@ public class CatalogDbContext(DbContextOptions<CatalogDbContext> opt) : DbContex
     {
         b.HasDefaultSchema("catalog");
         b.ApplyConfigurationsFromAssembly(typeof(CatalogDbContext).Assembly);
+        b.Entity<Book>(b =>
+        {
+            b.ToTable("Books"); // resolves to catalog."Books"
+        });
     }
 }
